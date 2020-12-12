@@ -46,6 +46,8 @@ When a guest checks in, a random ID will be saved on the guest's device. **recov
 
 This Backlog repository cointains only the [Issues](https://github.com/railslove/recover-backlog/issues) which are planned for development in our [Project Board](https://github.com/railslove/recover-backlog/projects/1).
 
+All tickets are related to the [backend app](https://github.com/railslove/rcvr-api) and [frontend app](https://github.com/railslove/rcvr-app) and to our landingpage based on squarspace. All tickets are labeled. Some features are context-releated e.g.: [recover health](https://recover-health.de) or [recover app](https://recoverapp.de) or [recover care](https://recovercare.de).
+
 ## License
 
 **rcvr.app** is open-source and free software released under the [GNU AGPL](https://github.com/railslove/rcvr-app/blob/master/LICENSE) (GNU Affero General Public License v3.0). We, [Railslove GmbH](https://railslove.com/), are committed to ensuring that it will remain a free and open-source project.
