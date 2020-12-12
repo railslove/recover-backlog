@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/checkmark.png" width="95" height="87" alt="">
+  <img src="https://raw.githubusercontent.com/railslove/rcvr-app/master/.github/checkmark.png" width="95" height="87" alt="">
 </p>
 
 <h1 align="center">rcvr.app Backlog</h1>
@@ -44,63 +44,7 @@ When a guest checks in, a random ID will be saved on the guest's device. **recov
 
 ## Contribute
 
-**Stack:**
-
-- [Typescript](https://www.typescriptlang.org/)
-- [Next.js](https://nextjs.org/)
-- [Emotion](https://emotion.sh/)
-- [Styled System](https://styled-system.com/)
-- [React Query](https://react-query.tanstack.com/)
-- [Dexie.js](http://dexie.org/)
-- [Formik](https://jaredpalmer.com/formik/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [SVGR](https://react-svgr.com/)
-
-**Before you can start, you need:**
-
-- [Node.js](https://nodejs.org/en/) >= 12
-- npm (comes with node)
-
-**Setup:**
-
-Install the dependencies:
-
-```
-npm install
-```
-
-Start the Next.js app:
-
-```
-npm run dev
-```
-
-The app is now available here: http://localhost:3000
-
-You can also choose a different port, e.g., when you're running [rcvr-api](https://github.com/railslove/rcvr-api/) already on port 3000.
-
-```
-npm run dev -- -p 3333
-```
-
-Suppose you want to change environment variables locally, for example, the API URL. In that case, you can duplicate `.env` to `.env.local` and change the variables in your local copy. Read more about environment variables [here](https://nextjs.org/docs/basic-features/environment-variables).
-
-If you want to change environment variables locally, for example the API URL, you can duplicate `.env` to `.env.local` and change the variables in your local copy. Read more about environment variables [here](https://nextjs.org/docs/basic-features/environment-variables).
-
-### Deployment
-
-- `origin/master` deploys to [rcvr.app](https://rcvr.app) on push
-- `origin/env/care` deploys to [care.rcvr.app](https://care.rcvr.app) on push
-- All pushed branches will create a preview deployment
-  - Prefixing a branch with `care/` will use a preview deployment of recover care
-
-### recover care
-
-_[recover care](https://care.rcvr.app/)_ is a version of recover for institutions like hospitals and nursing homes. It has slight differences in theming and behavior. To switch to recover care, set the environment variable `BUILD_VARIANT=care`.
-
-```
-BUILD_VARIANT=care npm run dev
-```
+This Backlog repository cointains only the [Issues](https://github.com/railslove/recover-backlog/issues) which are planned for development in our [Project Board](https://github.com/railslove/recover-backlog/projects/1).
 
 ## License
 
