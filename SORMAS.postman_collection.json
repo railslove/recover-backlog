@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "1a388461-2a08-4731-84ac-e6f529453c34",
+		"name": "SORMAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET cases since",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SurvOff",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SurvOff",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://demoversion.sormas-oegd.de/sormas-rest/cases/all/1611187200000",
+					"protocol": "https",
+					"host": [
+						"demoversion",
+						"sormas-oegd",
+						"de"
+					],
+					"path": [
+						"sormas-rest",
+						"cases",
+						"all",
+						"1611187200000"
+					]
+				},
+				"description": "1611187200000 === Thursday, 21. January 2021 00:00:00 \n\nbased on https://www.epochconverter.com"
+			},
+			"response": []
+		},
+		{
+			"name": "GET contacts since",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SurvOff",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SurvOff",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://demoversion.sormas-oegd.de/sormas-rest/contacts/all/1611576000000",
+					"protocol": "https",
+					"host": [
+						"demoversion",
+						"sormas-oegd",
+						"de"
+					],
+					"path": [
+						"sormas-rest",
+						"contacts",
+						"all",
+						"1611576000000"
+					]
+				},
+				"description": "1611187200000 === Thursday, 21. January 2021 00:00:00 \n\nbased on https://www.epochconverter.com"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(pm.request.body.raw)",
+							"pm.collectionVariables.set(\"person_id\", jsonData[0].uuid)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SurvOff",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SurvOff",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"uuid\": \"{{$guid}}\",\n        \"firstName\": \"Kontakt\",\n        \"lastName\": \"von Recover\",        \n        \"sex\": \"OTHER\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://demoversion.sormas-oegd.de/sormas-rest/persons/push",
+					"protocol": "https",
+					"host": [
+						"demoversion",
+						"sormas-oegd",
+						"de"
+					],
+					"path": [
+						"sormas-rest",
+						"persons",
+						"push"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create contact",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SurvOff",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SurvOff",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"uuid\": \"{{$guid}}\",\n        \"caze\": {\n            \"uuid\": \"XKTOXN-BECRAH-MGQ3FC-6GJRKGNA\"\n        },\n        \"disease\": \"CORONAVIRUS\",\n        \"reportDateTime\": {{$timestamp}},\n        \"reportingUser\": {\n            \"uuid\": \"TN2E4T-2OUTRL-FUFFX2-BMACKCDU\"\n        },\n        \"contactClassification\": \"UNCONFIRMED\",\n        \"person\": {\n            \"uuid\": \"{{person_id}}\"\n        },\n        \"healthConditions\": {\n            \"creationDate\": {{$timestamp}},\n            \"uuid\": \"{{$guid}}\"\n        },\n        \"contactProximity\": \"SAME_ROOM\",\n        \"contactProximityDetails\": \"Besuch der selben Einrichtung am 20.01. zwischen 14:00 und 16:00\",\n        \"contactCategory\": \"LOW_RISK\",\n        \"followUpStatus\": \"FOLLOW_UP\",\n        \"followUpComment\": \"Telefon Nummer aus Recover App +341223234234\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://demoversion.sormas-oegd.de/sormas-rest/contacts/push",
+					"protocol": "https",
+					"host": [
+						"demoversion",
+						"sormas-oegd",
+						"de"
+					],
+					"path": [
+						"sormas-rest",
+						"contacts",
+						"push"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "person_id",
+			"value": "95ebe958-d948-4bff-b11b-5dc8bf66322b"
+		}
+	]
+}
